@@ -1,0 +1,52 @@
+<div *ngIf="emails?.length > 0; else noEmails">
+  <ul *ngFor="let email of emails" class="collection">
+    <li class="collection-item">
+      <strong>{{ email.subject }} </strong>
+      <br />
+      {{ email.id }}
+      <br />
+      {{ email.content }}
+      <a href="#" class="secondary-content">
+        <i (click)="editEmail($event, email)" class="fa fa-pencil"></i>
+        <i
+          (click)="clearState()"
+          *ngIf="editState && emailToEdit.id == email.id"
+          class="fa fa-compress"
+        ></i>
+      </a>
+
+      <div *ngIf="editState && emailToEdit.id == email.id">
+        <form (ngSubmit)="updateEmail(email)">
+          <div class="row">
+            <div class="input-field col s6">
+              <input
+                type="text"
+                placeholder="Add Subject"
+                [(ngModel)]="email.subject"
+                name="subject"
+              />
+            </div>
+
+            <div class="input-field col s6">
+              <input
+                type="text"
+                placeholder="Content"
+                [(ngModel)]="email.content"
+                name="content"
+              />
+            </div>
+            <input type="submit" value="Update email" class="btn orange" />
+            <button (click)="deleteEmail($event, email)" class="btn red">
+              Delete email
+            </button>
+          </div>
+        </form>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noEmails>
+  <hr />
+  <h5>There is no email here</h5>
+</ng-template>
