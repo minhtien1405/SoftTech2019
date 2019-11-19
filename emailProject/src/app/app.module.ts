@@ -18,7 +18,8 @@ import { fromPromise } from "rxjs/internal-compatibility";
 import { EmailPageComponent } from "./email-page/email-page.component";
 import { RegistrationComponent } from "./auth/registration/registration.component";
 import { LoginComponent } from "./auth/login/login.component";
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from "./home/home.component";
+import { AngularFireDatabaseModule } from "angularfire2/database";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, "emailProject"),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   providers: [EmailService],
   bootstrap: [AppComponent]

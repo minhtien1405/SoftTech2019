@@ -8,43 +8,31 @@ import { Email } from "../models/Email";
 
 import { Observable } from "rxjs";
 import "rxjs/Rx";
-
-import { AngularFireAuth } from "angularfire2/auth";
-import { AngularFireDatabase } from "angularfire2/database";
-import { ReturnStatement } from "@angular/compiler";
+import { EmailsComponent } from "../components/emails/emails.component";
+import { database } from "firebase";
 
 @Injectable({
   providedIn: "root"
 })
 export class EmailService {
   emailsCollection: AngularFirestoreCollection<Email>;
-  emails: Observable<Email[]> = null;
+  emails: Observable<Email[]>;
   emailDoc: AngularFirestoreDocument<Email>;
-  userId: string;
-  userIDcurrent: string;
-
-  constructor(
-    public afs: AngularFirestore,
-    private db: AngularFireDatabase,
-    private afAuth: AngularFireAuth
-  ) {
+  constructor(public afs: AngularFirestore) {
     //this.emails = this.afs.collection("Emails").valueChanges();
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        this.userId = user.uid;
-        this.emails = this.afs
-          .collection("Emails", ref => ref.orderBy("userId", "asc"))
-          .snapshotChanges()
-          .map(changes => {
-            return changes.map(a => {
-              const data = a.payload.doc.data() as Email;
-              data.id = a.payload.doc.id;
-              return data;
-            });
-          });
-      }
-    });
+
     this.emailsCollection = this.afs.collection("Emails");
+
+    this.emails = this.afs
+      .collection("Emails", ref => ref.orderBy("subject", "asc"))
+      .snapshotChanges()
+      .map(changes => {
+        return changes.map(a => {
+          const data = a.payload.doc.data() as Email;
+          data.id = a.payload.doc.id;
+          return data;
+        });
+      });
   }
 
   getEmails() {
@@ -52,7 +40,6 @@ export class EmailService {
   }
 
   sendEmail(email: Email) {
-    email.userId = this.userId;
     this.emailsCollection.add(email);
   }
 
