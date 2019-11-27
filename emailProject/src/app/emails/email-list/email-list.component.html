@@ -1,0 +1,23 @@
+<section>
+    <mat-card *ngFor="let email of emails | async">
+        <div *ngIf = "auth.currentUserId === email.userId; else showNone">
+            <mat-card-content routerLink="{{email.id}}">
+                <h2>{{email.subject}}</h2>
+                <p><small>By {{email.sentBy}} &bull; on {{email.date.toDate()}}</small></p>
+                <p>{{email.content}}</p>
+
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+                <button mat-icon-button (click)="delete(email.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-card-actions>
+        </div>
+        <ng-template #showNone>
+            <div class="none">
+            email of other user
+            </div>
+        </ng-template>
+    </mat-card>
+</section>

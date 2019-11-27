@@ -1,0 +1,40 @@
+<ng-container *ngIf="email">
+    <div *ngIf="auth.currentUserId === email.userId">
+        <div [hidden]="!editing">
+            <mat-card>
+                <h1>Edit email</h1>
+                <mat-form-field>
+                    <input matInput placeholder="Email subject" [(ngModel)]="email.subject" name="subject">
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <textarea matInput placeholder="Email content" [(ngModel)]="email.content" name="content"
+                        rows="10"></textarea>
+                </mat-form-field>
+                <br>
+                <button mat-raised-button (click)="updateEmail()" color="accent">Save</button>
+                <button mat-button (click)="editing=false" *ngIf="editing">Cancel</button>
+            </mat-card>
+        </div>
+
+        <div [hidden]="editing">
+            <mat-card>
+                <h2>{{email.subject}}</h2>
+                <p>
+                    <small>Sent by {{email.sentBy}} &bull; on : {{email.date.toDate() | date: "medium"}}</small>
+                </p>
+                <mat-card-content>
+                    <p>{{ email.content }}</p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-icon-button (click)="editing=true">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="delete(email.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</ng-container>
