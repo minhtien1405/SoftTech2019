@@ -1,0 +1,23 @@
+<section>
+    <mat-accordion>
+        <mat-expansion-panel>
+
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Compose your email
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-form-field>
+                <input matInput placeholder="Email subject" [(ngModel)]="subject" name="subject">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <textarea matInput placeholder="Post content" [(ngModel)]="content" name="content" rows="10"></textarea>
+            </mat-form-field>
+            <br>
+            <button mat-raised-button (click)="sendEmail()" color="accent" [disabled]="!subject || !content">{{buttonText}}</button>
+
+        </mat-expansion-panel>
+    </mat-accordion>
+</section>
