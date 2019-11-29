@@ -14,7 +14,7 @@ export class EmailService {
   emailsCollection: AngularFirestoreCollection<Email>;
   emailDoc: AngularFirestoreDocument<Email>;
   constructor(private afs: AngularFirestore) {
-    this.emailsCollection = this.afs.collection('Emails', ref => ref.orderBy('subject', 'desc'))
+    this.emailsCollection = this.afs.collection('Emails', ref => ref.orderBy('date', 'desc'))
   }
 
   getEmails() {
