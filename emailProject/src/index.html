@@ -2,13 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>EmailProject</title>
+  <title>Smart Coordinator</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+<body background="https://www.bluemailmedia.com/blog/wp-content/uploads/2017/10/animated-gifs-for-email-1280x720.jpg"></body>
 <body class="mat-typography">
+  <center>
+    <!-- Load icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The form -->
+<form class="example" action="action_page.php">
+  <input type="text" placeholder="Search.." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+</center>
+
   <app-root></app-root>
+  <center>
+  <script language="JavaScript1.2">
+      //configure message
+      
+      message="© 2019 by SC Team"
+      //animate text in NS6? (0 will turn it off)
+      ns6switch=1
+      
+      var ns6=document.getElementById&&!document.all
+      mes=new Array();
+      mes[0]=-1;
+      mes[1]=-4;
+      mes[2]=-7;mes[3]=-10;
+      mes[4]=-7;
+      mes[5]=-4;
+      mes[6]=-1;
+      num=0;
+      num2=0;
+      txt="";
+      function jump0(){
+      if (ns6&&!ns6switch){
+      jump.innerHTML=message
+      return
+      }
+      if(message.length > 6){
+      for(i=0; i != message.length;i++){
+      txt=txt+"<span style='position:relative;' id='n"+i+"'>"+message.charAt(i)+"</span>"};
+      jump.innerHTML=txt;
+      txt="";
+      jump1a()
+      }
+      else{
+      alert("Your message is to short")
+      }
+      }
+      
+      function jump1a(){
+      nfinal=(document.getElementById)? document.getElementById("n0") : document.all.n0
+      nfinal.style.left=-num2;
+      if(num2 != 9){
+      num2=num2+3;
+      setTimeout("jump1a()",50)
+      }
+      else{
+      jump1b()
+      }
+      }
+      
+      function jump1b(){
+      nfinal.style.left=-num2;
+      if(num2 != 0){num2=num2-3;
+      setTimeout("jump1b()",50)
+      }
+      else{
+      jump2()
+      }
+      }
+      
+      function jump2(){
+      txt="";
+      for(i=0;i != message.length;i++){
+      if(i+num > -1 && i+num < 7){
+      txt=txt+"<span style='position:relative;top:"+mes[i+num]+"'>"+message.charAt(i)+"</span>"
+      }
+      else{txt=txt+"<span>"+message.charAt(i)+"</span>"}
+      }
+      jump.innerHTML=txt;
+      txt="";
+      if(num != (-message.length)){
+      num--;
+      setTimeout("jump2()",50)}
+      else{num=0;
+      setTimeout("jump0()",50)}}
+      </script>
+      </head>
+      <body>
+      
+      <h2><div id="jumpx" style="color:black"></div></h2>
+      <script>
+      if (document.all||document.getElementById){
+      jump=(document.getElementById)? document.getElementById("jumpx") : document.all.jumpx
+      jump0()
+      }
+      else
+      document.write(message)
+      </script>
+      <input type="button" onclick="location.href='https://www.elte.hu/en/';" value="Eötvös Loránd University" />
+    </center>
+    <form method="get" action="http://www.google.com/search">
+
+      <div style="border:2px dotted black;padding:4px;width:15em;">
+      <table border="0" align="center" cellpadding="0">
+      <tr><td>
+      <input type="text"   name="q" size="25" style="color:#808080;"
+      maxlength="255" value="Google site search"
+      onfocus="if(this.value==this.defaultValue)this.value=''; this.style.color='black';" onblur="if(this.value=='')this.value=this.defaultValue; "/>
+      <input type="submit" value="Go!" />
+      <input type="hidden" name="sitesearch" value="yoursite.com" /></td></tr>
+      </table>
+      </div>
+      
+      </form>
+      <div style="text-align:center;padding:1em 0;"> <h4><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/de/city/3054643"><span style="color:gray;">Aktuelle Uhrzeit / Ortszeit</span><br />Budapest, Ungarn</a></h4> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=de&size=small&timezone=Europe%2FBudapest" width="100%" height="90" frameborder="0" seamless></iframe> <small style="color:gray;">&copy; <a href="https://www.zeitzonenrechner.net/" style="color: gray;"></a></small> </div>
 </body>
 </html>
