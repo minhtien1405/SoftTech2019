@@ -6,6 +6,8 @@ code: `firebase init`
 + database
 + function
 + hosting
++ cloud.firestore
+Eslint debug on
 
 ## For init:
 
