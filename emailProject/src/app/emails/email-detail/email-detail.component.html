@@ -3,7 +3,7 @@
             <mat-card>
                 <h2>{{email.subject}}</h2>
                 <p>
-                    <small>Sent by {{email.sentBy}} &bull; on : {{email.date.toDate() | date: "medium"}}</small>
+                    <small>Sent by {{email.sentBy}} &bull; on : {{email.date.toDate()}}</small>
                     <br/>
                     <small>Sent to {{email.sendTo}}</small>
                 </p>
@@ -14,7 +14,7 @@
                     <button mat-icon-button (click)="reply=true">
                         <mat-icon>reply</mat-icon>
                     </button>
-                    <button mat-icon-button (click)="delete(email.id)">
+                    <button mat-icon-button (click)="delete()">
                         <mat-icon>delete</mat-icon>
                     </button>
                 </mat-card-actions>
