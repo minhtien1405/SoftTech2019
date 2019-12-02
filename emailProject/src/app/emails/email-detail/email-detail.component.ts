@@ -11,8 +11,8 @@ import { AuthService } from 'src/app/core/auth.service';
 export class EmailDetailComponent implements OnInit {
 
   email: Email;
-  editing: boolean = false;
-
+  reply: boolean = false;
+  replyContent: string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -38,8 +38,23 @@ export class EmailDetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id')
 
     this.emailService.update(id,formData);
-    this.editing = false;
+    this.reply = false;
   }
+
+  replyEmail() {
+    const data = {
+      content: this.replyContent,
+      userId: this.auth.currentUserId,
+      date: new Date(),
+      subject: "Reply " + this.email.subject,
+      sendTo: this.email.sentBy,
+      sentBy: this.auth.authState.displayName || this.auth.authState.email,
+      classification:-2
+    }
+    this.emailService.send(data)
+    this.reply = false;
+  }
+
 
   delete(){
     const id = this.route.snapshot.paramMap.get('id')
