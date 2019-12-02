@@ -8,6 +8,7 @@ import { EmailService } from '../email.service';
   styleUrls: ['./email-dashboard.component.css']
 })
 export class EmailDashboardComponent implements OnInit {
+  sendTo: string;
   content: string;
   subject: string;
 
@@ -24,9 +25,12 @@ export class EmailDashboardComponent implements OnInit {
       userId: this.auth.currentUserId,
       content: this.content,
       date: new Date(),
-      subject: this.subject
+      subject: this.subject,
+      sendTo: this.sendTo,
+      classification:-1
     };
     this.emailService.send(data)
+    this.sendTo=''
     this.subject=''
     this.content=''
     this.buttonText="Email Sent!"
