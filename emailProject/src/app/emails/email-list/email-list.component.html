@@ -1,23 +1,312 @@
-<section>
-    <mat-card *ngFor="let email of emails | async">
-        <div *ngIf = "auth.currentUserId === email.userId; else showNone">
+<mat-accordion>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Sent email
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let email of emails | async">
+      <div *ngIf="auth.currentUserId === email.userId; else showNone">
+        <div *ngIf="email.classification == -1">
+          <mat-card>
             <mat-card-content routerLink="{{email.id}}">
-                <h2>{{email.subject}}</h2>
-                <p><small>By {{email.sentBy}} &bull; on {{email.date.toDate()}}</small></p>
-                <p>{{email.content}}</p>
+              <h2>{{email.subject}}</h2>
+              <p><small>Sent by {{email.sentBy}} &bull; on {{email.date.toDate()}}</small></p>
+              <p>{{email.content}}</p>
 
             </mat-card-content>
 
             <mat-card-actions align="end">
-                <button mat-icon-button (click)="delete(email.id)">
-                    <mat-icon>delete</mat-icon>
-                </button>
+              <button mat-icon-button (click)="delete(email.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
             </mat-card-actions>
+          </mat-card>
+
         </div>
-        <ng-template #showNone>
-            <div class="none">
-                <i>This email is hidden</i>
-            </div>
-        </ng-template>
-    </mat-card>
-</section>
+        <ng-template #showNone></ng-template>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Reply email
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let email of emails | async">
+      <div *ngIf="auth.currentUserId === email.userId; else showNone">
+        <div *ngIf="email.classification == -2">
+          <mat-card>
+            <mat-card-content routerLink="{{email.id}}">
+              <h2>{{email.subject}}</h2>
+              <p><small>Sent by {{email.sentBy}} &bull; on {{email.date.toDate()}}</small></p>
+              <p>{{email.content}}</p>
+
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+              <button mat-icon-button (click)="delete(email.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+
+        </div>
+        <ng-template #showNone></ng-template>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+
+  <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Inbox with Smart Coordinator
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Require/Help Sector
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let email of emails | async">
+      <div *ngIf="auth.currentUserId === email.userId; else showNone">
+        <div *ngIf="email.classification == 0">
+          <mat-card>
+            <mat-card-content routerLink="{{email.id}}">
+              <h2>{{email.subject}}</h2>
+              <p><small>Sent by {{email.sentBy}} &bull; on {{email.date.toDate()}}</small></p>
+              <p>{{email.content}}</p>
+
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+              <button mat-icon-button (click)="delete(email.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+
+        </div>
+        <ng-template #showNone></ng-template>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        System Sector
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let email of emails | async">
+      <div *ngIf="auth.currentUserId === email.userId; else showNone">
+        <div *ngIf="email.classification == 1">
+          <mat-card>
+            <mat-card-content routerLink="{{email.id}}">
+              <h2>{{email.subject}}</h2>
+              <p><small>Sent by {{email.sentBy}} &bull; on {{email.date.toDate()}}</small></p>
+              <p>{{email.content}}</p>
+
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+              <button mat-icon-button (click)="delete(email.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+
+        </div>
+        <ng-template #showNone></ng-template>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Accomodation Sector
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let email of emails | async">
+      <div *ngIf="auth.currentUserId === email.userId; else showNone">
+        <div *ngIf="email.classification == 2">
+          <mat-card>
+            <mat-card-content routerLink="{{email.id}}">
+              <h2>{{email.subject}}</h2>
+              <p><small>Sent by {{email.sentBy}} &bull; on {{email.date.toDate()}}</small></p>
+              <p>{{email.content}}</p>
+
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+              <button mat-icon-button (click)="delete(email.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+
+        </div>
+        <ng-template #showNone></ng-template>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Money Sector
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let email of emails | async">
+      <div *ngIf="auth.currentUserId === email.userId; else showNone">
+        <div *ngIf="email.classification == 3">
+          <mat-card>
+            <mat-card-content routerLink="{{email.id}}">
+              <h2>{{email.subject}}</h2>
+              <p><small>Sent by {{email.sentBy}} &bull; on {{email.date.toDate()}}</small></p>
+              <p>{{email.content}}</p>
+
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+              <button mat-icon-button (click)="delete(email.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+
+        </div>
+        <ng-template #showNone></ng-template>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Problem Sector
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let email of emails | async">
+      <div *ngIf="auth.currentUserId === email.userId; else showNone">
+        <div *ngIf="email.classification == 4">
+          <mat-card>
+            <mat-card-content routerLink="{{email.id}}">
+              <h2>{{email.subject}}</h2>
+              <p><small>Sent by {{email.sentBy}} &bull; on {{email.date.toDate()}}</small></p>
+              <p>{{email.content}}</p>
+
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+              <button mat-icon-button (click)="delete(email.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+
+        </div>
+        <ng-template #showNone></ng-template>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Study Sector
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let email of emails | async">
+      <div *ngIf="auth.currentUserId === email.userId; else showNone">
+        <div *ngIf="email.classification == 5">
+          <mat-card>
+            <mat-card-content routerLink="{{email.id}}">
+              <h2>{{email.subject}}</h2>
+              <p><small>Sent by {{email.sentBy}} &bull; on {{email.date.toDate()}}</small></p>
+              <p>{{email.content}}</p>
+
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+              <button mat-icon-button (click)="delete(email.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+
+        </div>
+        <ng-template #showNone></ng-template>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Emotion Sector
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let email of emails | async">
+      <div *ngIf="auth.currentUserId === email.userId; else showNone">
+        <div *ngIf="email.classification == 6">
+          <mat-card>
+            <mat-card-content routerLink="{{email.id}}">
+              <h2>{{email.subject}}</h2>
+              <p><small>Sent by {{email.sentBy}} &bull; on {{email.date.toDate()}}</small></p>
+              <p>{{email.content}}</p>
+
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+              <button mat-icon-button (click)="delete(email.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+
+        </div>
+        <ng-template #showNone></ng-template>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Marked as spam
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let email of emails | async">
+      <div *ngIf="auth.currentUserId === email.userId; else showNone">
+        <div *ngIf="email.classification == 7">
+          <mat-card>
+            <mat-card-content routerLink="{{email.id}}">
+              <h2>{{email.subject}}</h2>
+              <p><small>Sent by {{email.sentBy}} &bull; on {{email.date.toDate()}}</small></p>
+              <p>{{email.content}}</p>
+
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+              <button mat-icon-button (click)="delete(email.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+
+        </div>
+        <ng-template #showNone></ng-template>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+</mat-expansion-panel>
+</mat-accordion>

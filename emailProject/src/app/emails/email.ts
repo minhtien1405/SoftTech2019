@@ -5,4 +5,6 @@ export class Email {
     date?: Date;
     id?:string;
     sentBy?: string;
+    sendTo?: string;
+    classification?: number;
 }
