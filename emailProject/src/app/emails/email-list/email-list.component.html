@@ -1,4 +1,4 @@
-<div *ngIf="auth.authState !== null">
+<div *ngIf="auth.authState !== null; else showNone">
   <mat-accordion>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
@@ -301,3 +301,13 @@
     </mat-expansion-panel>
   </mat-accordion>
 </div>
+<ng-template #showNone >
+  <div class="">
+    <h1>
+      Welcome to our page,please join us!
+    </h1>
+    <h2>
+      We kindly ask you to login to our SmartCoordinator and check relevent emails you have received..
+    </h2>
+  </div>
+</ng-template>
