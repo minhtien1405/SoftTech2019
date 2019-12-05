@@ -1,4 +1,3 @@
-
 <div *ngIf="auth.authState !== null; else showNone">
   <mat-accordion>
     <mat-expansion-panel>
@@ -302,27 +301,34 @@
     </mat-expansion-panel>
   </mat-accordion>
 </div>
-<ng-template #showNone >
+
+<ng-template #showNone>
   <div class="container">
     <div class="row">
-    
-    <div class="col-sm-6" style="background-color:rgba(204, 160, 160, 0.5);">
-
-   <marquee behavior="scroll" direction="up"  scrollamount="1"><h3><div style="text-align:center"><font size="+3">
-    <p style="color:white;">Do you have a lot of e-mails need to be answered, and no time to read all of them?</p>
-    </font></div></h3><h4><div style="text-align:center"><font size="+3"> <p style="color:white;"> Which one should you answer at first?!</p></font></div></h4><h5><div style="text-align:center"><font size="+3"><p style="color:white;">Now we offer a solution! The smartCoordinator! will take the emails and separate each where they truly belong!</p></font></div></h5><h6><div style="text-align:center"> <font size="+3"> <p style="color:white;"> We kindly ask you to login!</p></font></div></h6></marquee>
-
-
-  
+      <div class="col-sm-9 showNone-block">
+        <marquee behavior="scroll" direction="up" scrollamount="3">
+          <h3 class="showNone-block-title">
+            Do you have a lot of e-mails need to be answered, and no time to read all of
+            them?
+          </h3>
+          <h3 class="showNone-block-title">
+            Which one should you answer at first?!
+          </h3>
+          <h3 class="subtitle">
+            Now we offer a solution! The Smart Coordinator will take your emails and separate
+            each where they truly belong!
+          </h3>
+          <h3 class="subtitle">
+            We kindly ask you to login!
+          </h3>
+        </marquee>
+      </div>
+      <div class="col-sm-3">
+        <marquee behavior="scroll" direction="up">
+          <img src="https://icon-library.net/images/new-notification-icon/new-notification-icon-11.jpg" width="150"
+            height="150" alt="Flying Bee" ALIGN="RIGHT" hspace="20">
+        </marquee>
+      </div>
     </div>
-    <div class="col-sm-6">
-      
-    <marquee behavior="scroll" direction="up">
-
-      <img src="https://icon-library.net/images/new-notification-icon/new-notification-icon-11.jpg" width="150" height="150" alt="Flying Bee"ALIGN="RIGHT" hspace="20">
-      
-      </marquee>
-  
-    </div>
-    </div> </div>
+  </div>
 </ng-template>
