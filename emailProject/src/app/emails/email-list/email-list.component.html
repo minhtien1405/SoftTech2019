@@ -1,3 +1,4 @@
+
 <div *ngIf="auth.authState !== null; else showNone">
   <mat-accordion>
     <mat-expansion-panel>
@@ -302,12 +303,26 @@
   </mat-accordion>
 </div>
 <ng-template #showNone >
-  <div class="">
-    <h1>
-      Welcome to our page,please join us!
-    </h1>
-    <h2>
-      We kindly ask you to login to our SmartCoordinator and check relevent emails you have received..
-    </h2>
-  </div>
+  <div class="container">
+    <div class="row">
+    
+    <div class="col-sm-6" style="background-color:rgba(204, 160, 160, 0.5);">
+
+   <marquee behavior="scroll" direction="up"  scrollamount="1"><h3><div style="text-align:center"><font size="+3">
+    <p style="color:white;">Do you have a lot of e-mails need to be answered, and no time to read all of them?</p>
+    </font></div></h3><h4><div style="text-align:center"><font size="+3"> <p style="color:white;"> Which one should you answer at first?!</p></font></div></h4><h5><div style="text-align:center"><font size="+3"><p style="color:white;">Now we offer a solution! The smartCoordinator! will take the emails and separate each where they truly belong!</p></font></div></h5><h6><div style="text-align:center"> <font size="+3"> <p style="color:white;"> We kindly ask you to login!</p></font></div></h6></marquee>
+
+
+  
+    </div>
+    <div class="col-sm-6">
+      
+    <marquee behavior="scroll" direction="up">
+
+      <img src="https://icon-library.net/images/new-notification-icon/new-notification-icon-11.jpg" width="150" height="150" alt="Flying Bee"ALIGN="RIGHT" hspace="20">
+      
+      </marquee>
+  
+    </div>
+    </div> </div>
 </ng-template>
