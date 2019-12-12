@@ -1,49 +1,48 @@
 <ng-container *ngIf="email">
-    <div *ngIf="auth.currentUserId === email.userId">
-            <mat-card>
-                <h2>{{email.subject}}</h2>
-                <p>
-                    <small>Sent by {{email.sentBy}} &bull; on : {{email.date.toDate()}}</small>
-                    <br/>
-                    <small>Sent to {{email.sendTo}}</small>
-                </p>
-                <mat-card-content>
-                    <p>{{ email.content }}</p>
-                </mat-card-content>
-                <mat-card-actions align="end">
-                    <button mat-icon-button (click)="reply=true">
-                        <mat-icon>reply</mat-icon>
-                    </button>
-                    <button mat-icon-button (click)="delete()">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                </mat-card-actions>
-            </mat-card>
+  <div *ngIf="auth.currentUserId === email.userId">
+    <mat-card>
+      <h2>{{email.subject}}</h2>
+      <p>
+        <small>Sent by {{email.sentBy}} &bull; on : {{email.date.toDate()}}</small>
+        <br />
+        <small>Sent to {{email.sendTo}}</small>
+      </p>
+      <mat-card-content>
+        <p>{{ email.content }}</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-icon-button (click)="reply=true">
+          <mat-icon>reply</mat-icon>
+        </button>
+        <button mat-icon-button (click)="delete()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
 
-            <div [hidden]="!reply">
-                <mat-card>
-                    <h1>Reply email</h1>
-                    <mat-form-field>
-                        <input matInput placeholder="Reply to" [(ngModel)]="email.sentBy" name="sendTo" disabled>
-                    </mat-form-field>
-                    <br/>
-                    <mat-form-field>
-                        <input matInput placeholder="Email subject" [(ngModel)]="email.subject" name="subject" disabled>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field>
-                        <textarea matInput placeholder="Email content" [(ngModel)]="replyContent" name="replyContent" rows="10"></textarea>
-                    </mat-form-field>
-                    <br>
-                    <button mat-raised-button (click)="replyEmail()" color="accent">Send</button>
-                    <button mat-button (click)="reply=false" *ngIf="reply">Cancel</button>
-                </mat-card>
-            </div>
-
-            <h1><form>
-                    <input type="button" value=" back!" onclick="history.back()">
-                  </form></h1>
-           <h1> <button onclick="window.print()">Print This Page</button></h1>
-
+    <div [hidden]="!reply">
+      <mat-card>
+        <h1>Reply email</h1>
+        <mat-form-field>
+          <input matInput placeholder="Reply to" [(ngModel)]="email.sentBy" name="sendTo" disabled>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+          <input matInput placeholder="Email subject" [(ngModel)]="email.subject" name="subject" disabled>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <textarea matInput placeholder="Email content" [(ngModel)]="replyContent" name="replyContent"
+            rows="10"></textarea>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)="replyEmail()" color="accent">Send</button>
+        <button mat-button (click)="reply=false" *ngIf="reply">Cancel</button>
+      </mat-card>
     </div>
+
+
+    <button mat-raised-button onclick="window.print()" color="blue" class ="print-page">Print This Page</button>
+
+  </div>
 </ng-container>

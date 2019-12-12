@@ -7,3 +7,34 @@ mat-card-content:focus{
   outline: none;
   border: 0;
 }
+mat-expansion-panel {
+  font-family: 'Graphik Web',Helvetica,sans-serif;
+  line-height: 30pt;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+mat-panel-title{
+  font-size: 1.4em;
+}
+.showNone-block{
+  background-color:rgba(255, 255, 255, 0.95);
+  border-radius: 25px;
+  padding: 5%;
+  
+}
+
+.showNone-block-title {
+  font-family: 'Graphik Web',Helvetica,sans-serif;
+  font-size: 2.5em;
+  font-weight: bold;
+  line-height: 30pt;
+  text-align: center;
+}
+
+.subtitle{
+  font-family: Helvetica,sans-serif;
+  font-size: 1.5em;
+  line-height: 26pt;
+  font-weight: bold;
+  text-align: center;
+}

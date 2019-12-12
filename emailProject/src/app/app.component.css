@@ -1,0 +1,18 @@
+.welcome {
+    font-family: 'Graphik Web',Helvetica,sans-serif;
+}
+
+.welcome-marquee {
+    color: white;
+    font-size: 4em;
+    margin-top: 20px;
+    line-height: 50px;
+}
+
+.contact {
+    font-family: 'Graphik Web',Helvetica,sans-serif;
+    color: white;
+    margin-left: 50px;
+    font-size: 2.5em;
+    line-height: 30pt;
+}
