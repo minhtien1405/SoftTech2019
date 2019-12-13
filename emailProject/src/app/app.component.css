@@ -1,5 +1,9 @@
 .welcome {
     font-family: 'Graphik Web',Helvetica,sans-serif;
+    color: white;
+    font-size: 3em;
+    text-align: center;
+    line-height: 50px;
 }
 
 .welcome-marquee {
